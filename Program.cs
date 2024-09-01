@@ -23,47 +23,59 @@ namespace Prog
                         i++;
                     }
                 }
-                string arms = string.Join(" ", args.Skip(1)); // Pega somente os "argumentos" após o parametro
-                string Nezu;
+                string arms = ""; // Pega somente os "argumentos" após o parametro
+                string arms2 = "";
+                string Nezu = "";
                 switch (args[0])
                 {
                     case "-1": //Texto para Hex
+                        arms = string.Join(" ", args.Skip(1));
                         if (arms.Length > 0)
                         {
+                            arms = string.Join(" ", args.Skip(1));
                             var con = new HexBi();
                             Nezu = con.AscHex(arms);
                         }
                         break;
                     case "-2": // Texto para Binario
+                        arms = string.Join(" ", args.Skip(1));
                         if (arms.Length > 0)
                         {
+                            arms = string.Join(" ", args.Skip(1));
                             var con = new HexBi();
                             Nezu = con.AscBi(arms);
                         }
                         break;
                     case "-3": //Texto para Codigo morse
+                        arms = string.Join(" ", args.Skip(1));
                         if (arms.Length > 0)
                         {
+                            arms = string.Join(" ", args.Skip(1));
                             var morse = new Morse();
                             Nezu = morse.morga(arms);
                         }
                         break;
                     case "-4": //Hex para Texto
+                        arms = string.Join(" ", args.Skip(1));
                         if (arms.Length > 0)
                         {
+                            arms = string.Join(" ", args.Skip(1));
                             var con = new HexBi();
                             Nezu = con.HexAsc(arms);
                         }
                         break;
                     case "-5": //Hex para Binário
+                        arms = string.Join(" ", args.Skip(1));
                         if (arms.Length > 0)
                         {
+                            arms = string.Join(" ", args.Skip(1));
                             var con = new HexBi();
                             string asc = con.HexAsc(arms);
                             Nezu = con.AscBi(asc);
                         }
                         break;
                     case "-6": //Hex para morse
+                        arms = string.Join(" ", args.Skip(1));
                         if (arms.Length > 0)
                         {
                             var con = new HexBi();
@@ -74,6 +86,7 @@ namespace Prog
                         }
                         break;
                     case "-7": // Binario para Texto
+                        arms = string.Join(" ", args.Skip(1));
                         if (arms.Length > 0)
                         {
                             var con = new HexBi();
@@ -81,6 +94,7 @@ namespace Prog
                         }
                         break;
                     case "-8": // Binario para Hex
+                        arms = string.Join(" ", args.Skip(1));
                         if (arms.Length > 0)
                         {
                             var con = new HexBi();
@@ -89,6 +103,7 @@ namespace Prog
                         }
                         break;
                     case "-9": // Binario para Morse
+                        arms = string.Join(" ", args.Skip(1));
                         if (arms.Length > 0)
                         {
                             var con = new HexBi();
@@ -99,6 +114,7 @@ namespace Prog
                         }
                         break;
                     case "-10": //Codigo morse para texto
+                        arms = string.Join(" ", args.Skip(1));
                         if (arms.Length > 0)
                         {
                             var morse = new Morse();
@@ -106,6 +122,7 @@ namespace Prog
                         }
                         break;
                     case "-11": //Codigo morse para hex
+                        arms = string.Join(" ", args.Skip(1));
                         if (arms.Length > 0)
                         {
                             var morse = new Morse();
@@ -116,7 +133,8 @@ namespace Prog
                         }
                         break;
                     case "-12": //Codigo morse para binário
-                    if (arms.Length > 0)
+                        arms = string.Join(" ", args.Skip(1));
+                        if (arms.Length > 0)
                         {
                             var morse = new Morse();
                             string asc = morse.desmorga(arms);
@@ -124,8 +142,17 @@ namespace Prog
                             var con = new HexBi();
                             Nezu = con.AscBi(asc);
                         }
-                        break; 
+                        break;
+                    case "-13": //Cifra de cesar
+                        arms2 = string.Join(" ", args.Skip(2));
+                        if (args.Length > 1)
+                        {
+                            var cesar = new Cesar.Cesar();
+                            Nezu = cesar.ceso(int.Parse(args[1]), arms2.ToUpper());
+                        }
+                        break;
                 }
+                Console.WriteLine(Nezu);
             }
         }
     }
