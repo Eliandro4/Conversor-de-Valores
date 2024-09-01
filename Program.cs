@@ -15,7 +15,7 @@ namespace Prog
             {
                 if (args[0] == "-h")
                 {
-                    string[] helpmsg = { "Texto para Hexadecimal", "Texto para Binário", "Texto para Código Morse", "Hexadecimal para Texto", "Hexadecimal para Binário", "Hexadecimal para Código Morse", "Binário para Texto", "Binário para Hexadecimal", "Binário para Código Morse", "Código Morse para Texto", "Código Morse para Hexadecimal", "Código Morse para Binário" };
+                    string[] helpmsg = { "Texto para Hexadecimal", "Texto para Binário", "Texto para Código Morse", "Hexadecimal para Texto", "Hexadecimal para Binário", "Hexadecimal para Código Morse", "Binário para Texto", "Binário para Hexadecimal", "Binário para Código Morse", "Código Morse para Texto", "Código Morse para Hexadecimal", "Código Morse para Binário", "Cífra de César", "Cífra Atbash", "Cífra do Espelho" };
                     int i = 1;
                     foreach (string msg in helpmsg)
                     {
@@ -149,6 +149,22 @@ namespace Prog
                         {
                             var cesar = new Cesar.Cesar();
                             Nezu = cesar.ceso(int.Parse(args[1]), arms2.ToUpper());
+                        }
+                        break;
+                    case "-14": //Atbash
+                        arms = string.Join(" ", args.Skip(1));
+                        if (args.Length > 0)
+                        {
+                            var atobasho = new AtMir.Atbash();
+                            Nezu = atobasho.atbashio_rapido(arms);
+                        }
+                        break;
+                    case "-15": //Espelhamento
+                        arms = string.Join(" ", args.Skip(1));
+                        if (args.Length > 0)
+                        {
+                            var mirro = new AtMir.Mirror();
+                            Nezu = mirro.espelhar(arms);
                         }
                         break;
                 }
